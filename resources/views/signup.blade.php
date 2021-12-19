@@ -32,6 +32,8 @@
             </div>
     
             <input id="signup" class="btn" type="submit" name="" value="Sign up">
+            <a href="/"><input id="login" class="btn" type="button" name="" value="Login"></a>
+
         </div>
         </form>
 
