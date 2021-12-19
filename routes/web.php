@@ -20,3 +20,4 @@ use App\Http\Controllers\PageController;
 
 
 Route::get('/', [PageController::class, 'login'] );
+Route::get('/signup', [PageController::class, 'signup']);

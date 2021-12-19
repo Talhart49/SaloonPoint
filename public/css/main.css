@@ -64,6 +64,7 @@ body {
     color: brown;
     padding: 5px;
     font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
     margin: 12px 0;
 }
