@@ -44,6 +44,12 @@
 
     </div>
 
+    <div>
+        @yield('services')
+    </div>
+
+
+
     <footer>
         @include('layouts.footer')
     </footer>
