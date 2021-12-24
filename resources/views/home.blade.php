@@ -1,5 +1,11 @@
 @extends('layouts.app')
 <style>
+    .start {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     #intro {
         background-color: #f05da3;
         padding: 6%;
@@ -47,9 +53,9 @@
 @section('content')
 
 
-    <div class="container"
+    <div class="container start"
         style="margin-top:15%;
-                                                                                                                                                                                                                                                                        height=100vh">
+                                                                                                                                                                                                                                                                                    height=100vh">
         <div class="col-md-10 col-md-offset-1 ">
             <div class="banner-text text-center ">
                 <h1>Beauty Spa & Salon</h1>

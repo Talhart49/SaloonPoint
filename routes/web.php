@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\CustomController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,5 @@ use App\Http\Controllers\PageController;
 Route::get('/', [PageController::class, 'login'] );
 Route::get('/signup', [PageController::class, 'signup']);
 Route::get('/home', [PageController::class, 'home']);
+
+Route::get('/customers', 'customerController@index');
