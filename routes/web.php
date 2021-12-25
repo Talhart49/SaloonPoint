@@ -23,6 +23,8 @@ use App\Http\Controllers\PageController;
 Route::get('/', [PageController::class, 'login'] );
 Route::get('/signup', [PageController::class, 'signup']);
 Route::get('/home', [PageController::class, 'home']);
+Route::get('/booking', [PageController::class, 'booking']);
+
 
 
 
