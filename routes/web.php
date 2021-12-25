@@ -25,7 +25,6 @@ Route::get('/signup', [PageController::class, 'signup']);
 Route::get('/home', [PageController::class, 'home']);
 
 
-Route::get('/customer', 'App\Http\Controllers\customerController@index');
 
 Route::post('/signup', 'App\Http\Controllers\customerController@store');
 
