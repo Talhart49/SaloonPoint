@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\customer;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Request;
+use Illuminate\Support\Facades\DB;
 
 class customerController extends Controller
 {
@@ -15,9 +17,9 @@ class customerController extends Controller
     public function index()
     {
         $name='Talha';
-        return view('customers.index',['name'=>$name]);
+        return view('customers.index', ['name' => $name] );
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +27,7 @@ class customerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customers.create');
     }
 
     /**
@@ -36,8 +38,17 @@ class customerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $name=Request::input('name');
+        $email=Request::input('email');
+        $phone=Request::input('phone');
+        $password=Request::input('password');
+
+        DB::insert('insert into customers(name,email,phone,password) values (?,?,?,?)', [$name,$email,$phone,$password]);
+
+        return redirect('signup');
+        // return $request ->all();
+// return view('signup');   
+ }
 
     /**
      * Display the specified resource.
