@@ -6,6 +6,8 @@ use App\Models\customer;
 // use Illuminate\Http\Request;
 use Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class customerController extends Controller
 {
@@ -15,9 +17,9 @@ class customerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $name='Talha';
-        return view('customers.index', ['name' => $name] );
+    {      
+        $customer = customer::all();
+          return view('customers.index' , compact('customer'));
     }
  
     /**
@@ -43,11 +45,35 @@ class customerController extends Controller
         $phone=Request::input('phone');
         $password=Request::input('password');
 
-        DB::insert('insert into customers(name,email,phone,password) values (?,?,?,?)', [$name,$email,$phone,$password]);
+        DB::insert('insert into users(name,email,phone,password) values (?,?,?,?)', [$name,$email,$phone,Hash::make($password)]);
+        //  $signup = auth()->attempt([
 
+        //     'email' =>$email,
+        //     'password' =>$password,
+
+        // ]);
         return redirect('signup');
         // return $request ->all();
 // return view('signup');   
+ }
+
+ public function login(Request $request){
+     $name=Request::input('name');
+     $password=Request::input('password');
+
+     $login = auth()->attempt([
+
+        'name' =>$name,
+        'password' =>$password,
+
+    ]);
+
+    if($login==true){
+        return view('home');
+    }
+    else{
+        return redirect('/');
+    }
  }
 
     /**
