@@ -37,7 +37,9 @@
         @yield('content')
     </div>
 
-
+    <div>
+        @yield('editP')
+    </div>
     <div>
 
         @yield('about')
@@ -48,7 +50,9 @@
         @yield('services')
     </div>
 
-
+    <div>
+        @yield('myinfo')
+    </div>
 
     <footer>
         @include('layouts.footer')

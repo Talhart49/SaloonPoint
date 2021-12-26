@@ -18,4 +18,13 @@ class PageController extends Controller
     public function booking(){
         return view('booking');
     }
+    public function profile(){
+        return view('profile');
+    }
+    public function admin(){
+        return view('admin');
+    }
+    public function editP(){
+        return view('editP');
+    }
 }

@@ -14,7 +14,7 @@
         .section-header {
             width: 100%;
             text-align: center;
-            margin: 5% 0;
+            margin: 2% 0;
 
         }
 
@@ -33,6 +33,35 @@
 
         }
 
+        select {
+            width: 15%;
+            min-width: 75px;
+
+        }
+
+        .submitbtn {
+            width: 7.5%;
+            min-width: 75px;
+            padding: 7px;
+            font-size: 15px;
+            border: transparent;
+            border-radius: 7px;
+            background-color: white;
+        }
+
+        .submitbtn:hover {
+            background-color: palevioletred;
+
+        }
+
+        @media screen and (max-width: 850px) {
+            .section-header {
+
+                margin: 1% 0;
+
+            }
+        }
+
     </style>
 
     <section id="booking" class="booking section">
@@ -47,7 +76,8 @@
             <div class="row section-data">
                 <div class=" col-md-offset-2 conForm">
                     <div id="message"></div>
-                    <form method="post" action="" name="cform" id="cform">
+                    <form method="post" action="booking" name="cform" id="cform">
+                        @csrf
                         <h3><strong>Choose Service</strong></h3>
                         <select name="services" id="services_here">
                             <optgroup label="Salon">
@@ -100,7 +130,7 @@
 
                         <br />
 
-                        <input type="submit" id="submit" name="submit" class="submitBnt" value="Submit" />
+                        <input type="submit" id="submit" name="submit" class="submitbtn" value="Confirm" />
                         <div id="simple-msg"></div>
                     </form>
                 </div>

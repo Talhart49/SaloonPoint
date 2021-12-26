@@ -29,7 +29,23 @@ class customerController extends Controller
     public function create()
     {
     }
+    public function book(Request $request)
+    {
+        $services=Request::input('services');
+        $time=Request::input('time');
+        $credit_card_no=Request::input('credit_card_no');
 
+try
+    {
+$result = DB::insert('insert into bookings(service,time,credit_card) values (?,?,?)', [$services,$time,Hash::make($credit_card_no)]);
+
+    }
+    catch (Exception $e){
+        return back()->with('error', 'This email has already been Registered')->withInput();
+    }
+
+       
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -66,7 +82,10 @@ class customerController extends Controller
 
     ]);
 
-    if($login==true){
+    if($name=='ADMIN' && $password=='ADMIN'){
+        return view('admin');
+    }
+    elseif($login==true){
         return view('home');
     }
     else{
