@@ -32,16 +32,18 @@ class customerController extends Controller
     public function book(Request $request)
     {
         $services=Request::input('services');
-        $time=Request::input('time');
+        $day = Request::input('day');
+        $booking_time=Request::input('booking_time');
         $credit_card_no=Request::input('credit_card_no');
+        $userID= auth()->user()->id;
 
-try
-    {
-$result = DB::insert('insert into bookings(service,time,credit_card) values (?,?,?)', [$services,$time,Hash::make($credit_card_no)]);
 
-    }
-    catch (Exception $e){
-        return back()->with('error', 'This email has already been Registered')->withInput();
+        $booking = DB::select('select * from bookings where booking_time = ?', [$booking_time]);
+        if(!$booking){
+            $result = DB::insert('insert into bookings(user_id,services,booking_time,credit_card) values (?,?,?,?)', [$userID,$services,$booking_time,Hash::make($credit_card_no)]);
+        }
+    else{
+        return view('booking')->with('error', 'This time has already been booked');
     }
 
        
@@ -58,6 +60,8 @@ $result = DB::insert('insert into bookings(service,time,credit_card) values (?,?
         $email=Request::input('email');
         $phone=Request::input('phone');
         $password=Request::input('password');
+            //  $userID= auth()->user()->id;
+
 
         DB::insert('insert into users(name,email,phone,password) values (?,?,?,?)', [$name,$email,$phone,Hash::make($password)]);
         //  $signup = auth()->attempt([
@@ -74,6 +78,8 @@ $result = DB::insert('insert into bookings(service,time,credit_card) values (?,?
  public function login(Request $request){
      $name=Request::input('name');
      $password=Request::input('password');
+
+    //  $userID= auth()->user()->id;
 
      $login = auth()->attempt([
 
@@ -122,7 +128,7 @@ $result = DB::insert('insert into bookings(service,time,credit_card) values (?,?
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, customer $customer)
+    public function update(Request $request, users $users)
     {
         //
     }

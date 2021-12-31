@@ -33,10 +33,15 @@
 
         }
 
-        select {
+        #time {
             width: 15%;
             min-width: 75px;
 
+        }
+
+        #services_here {
+            width: 15%;
+            min-width: 75px;
         }
 
         .submitbtn {
@@ -104,25 +109,11 @@
                                 </option>
                             </optgroup>
                         </select>
-
                         <h3><strong>Choose Time</strong></h3>
-                        <select name="time" id="time">
-                            <option value="9:00-9:59">9:00-9:59</option>
-                            <option value="10:00-10:59">10:00-10:59</option>
-                            <option value="11:00-11:59">11:00-11:59</option>
-                            <option value="12:00-12:59">12:00-12:59</option>
-                            <option value="12:00-12:59">13:00-13:59</option>
-                            <option value="12:00-12:59">14:00-14:59</option>
-                            <option value="15:00-15:59">15:00-15:59</option>
-                            <option value="16:00-16:59">16:00-16:59</option>
-                            <option value="17:00-17:59">17:00-17:59</option>
-                            <option value="18:00-18:59">18:00-18:59</option>
-                            <option value="19:00-19:59">19:00-19:59</option>
-                            <option value="20:00-20:59">20:00-20:59</option>
-                            <option value="21:00-21:59">21:00-21:59</option>
-                            <option value="22:00-22:59">22:00-22:59</option>
-                            <option value="23:00-23:59">23:00-23:59</option>
-                        </select>
+                        <input type="datetime-local" name="booking_time" min="2021-12-30T08:30" max="2022-01-30T23:30"
+                            id="time">
+
+
                         <br />
                         <br />
                         <input name="credit_card_no" id="credit_card_no" type="text" class=""
@@ -132,6 +123,12 @@
 
                         <input type="submit" id="submit" name="submit" class="submitbtn" value="Confirm" />
                         <div id="simple-msg"></div>
+                        <?php
+                        if (empty($error)) {
+                        } else {
+                            echo '<h1>' . $error . '</h1>';
+                        }
+                        ?>
                     </form>
                 </div>
             </div>

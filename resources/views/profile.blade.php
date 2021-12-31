@@ -29,7 +29,7 @@
 
     <div class="container start"
         style="margin-top:15%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                height=100vh">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                height=100vh">
         <div class="col-md-10 col-md-offset-1 ">
             <div class="banner-text text-center ">
                 <h1>Welcome to your page </h1>
@@ -55,7 +55,6 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Password</th>
                     <th scope="col">Phone No.</th>
                     <th scope="col">Edit</th>
 
@@ -63,11 +62,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>somethin</td>
-                    <td>Something</td>
-                    <td>something</td>
-                    <td>something</td>
-                    <td> <a href="editP">click here</a></td>
+                    <td>{{ auth()->user()->name }}</td>
+                    <td>{{ auth()->user()->email }}</td>
+                    <td>{{ auth()->user()->phone }}</td>
+                    <td> <a href={{ '/editp?id=' . auth()->user()->id }}>click here</a></td>
                 </tr>
 
             </tbody>
@@ -86,20 +84,26 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th scope="col">Name</th>
                     <th scope="col">Service</th>
                     <th scope="col">Timing</th>
-                    <th scope="col">Credit Card No</th>
+                    {{-- <th scope="col">Credit Card No</th> --}}
                     <th scope="col">Delete</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>somethin</td>
-                    <td>Something</td>
-                    <td>something</td>
-                    <td> <a href="">click here</a></td>
-                </tr>
+                @if ($bookings)
+                    @foreach ($bookings as $booking)
+                        <tr>
+                            <td>{{ $name }}</td>
+                            <td>{{ $booking->services }}</td>
+                            <td>{{ $booking->booking_time }}</td>
+                            <td> <a href={{ '/delete?booking_id=' . $booking->booking_id }}>click here</a></td>
+                        </tr>
+                    @endforeach
+                @endif
+
 
             </tbody>
         </table>

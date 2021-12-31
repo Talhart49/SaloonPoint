@@ -27,6 +27,7 @@ Route::get('/booking', [PageController::class, 'booking']);
 Route::get('/profile', [PageController::class, 'profile']);
 Route::get('/admin', [PageController::class, 'admin']);
 Route::get('/editP', [PageController::class, 'editP']);
+Route::get('/delete', [PageController::class, 'deleteBooking']);
 
 
 
@@ -36,7 +37,8 @@ Route::get('/editP', [PageController::class, 'editP']);
 
 Route::post('/signup', 'App\Http\Controllers\customerController@store');
 
-
 Route::post('/', 'App\Http\Controllers\customerController@login');
 
 Route::post('/booking', 'App\Http\Controllers\customerController@book');
+
+Route::post('/editp', 'App\Http\Controllers\customerController@edit');

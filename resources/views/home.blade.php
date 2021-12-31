@@ -55,10 +55,13 @@
 
     <div class="container start"
         style="margin-top:15%;
-                                                                                                                                                                                                                                                                                    height=100vh">
+                                                                                                                                                                                                                                                                                                height=100vh">
         <div class="col-md-10 col-md-offset-1 ">
             <div class="banner-text text-center ">
                 <h1>Beauty Spa & Salon</h1>
+                <p>
+                    {{ auth()->user()->id }}
+                </p>
                 <p>A Beauty Spa & salon is your one stop shop for all things pampering, beautifying and grooming. You'll
                     find everything from facials to spray tans to lash extensions and even a spot of nail art. And it's not
                     just for the girls.<br /> </p>

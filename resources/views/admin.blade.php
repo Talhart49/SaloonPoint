@@ -67,20 +67,25 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Password</th>
                     <th scope="col">Phone No.</th>
                     <th scope="col">Edit</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>somethin</td>
-                    <td>Something</td>
-                    <td>something</td>
-                    <td>something</td>
-                    <td> <a href="editP">click here</a></td>
-                </tr>
+                @csrf
+                <?php
+                $users = DB::select('select * from users');
+                ?>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->phone }}</td>
+                        <td> <a href="editP">click here</a></td>
+                    </tr>
+                @endforeach
+
 
             </tbody>
         </table>
@@ -102,20 +107,38 @@
 
                     <th scope="col">Service</th>
                     <th scope="col">Timing</th>
-                    <th scope="col">Credit Card No</th>
                     <th scope="col">Delete</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>somethin</td>
-                    <td>somethin</td>
-                    <td>Something</td>
-                    <td>something</td>
-                    <td> <a href="">click here</a></td>
-                </tr>
 
+                @csrf
+                <?php
+                $bookings = DB::select('select * from bookings');
+                // $name = DB::select('select name from users where id=?', [$bookings[0]->user_id]);
+                // foreach ($name as $n) {
+                //     echo $n;
+                // }
+                ?>
+                @if ($bookings)
+
+                    @foreach ($bookings as $booking)
+                        <?php
+                        $user = DB::select('select name from users where id=?', [$booking->user_id]);
+                        $name = $user[0];
+                        echo $name;
+                        
+                        ?>
+                        console.log($name);
+                        <tr>
+                            {{-- <td>{{ $name }}</td> --}}
+                            <td>{{ $booking->services }}</td>
+                            <td>{{ $booking->booking_time }}</td>
+                            <td> <a href={{ '/delete?booking_id=' . $booking->booking_id }}>click here</a></td>
+                        </tr>
+                    @endforeach
+                @endif
             </tbody>
         </table>
 
