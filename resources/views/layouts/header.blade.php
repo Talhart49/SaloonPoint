@@ -16,14 +16,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profile">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="home#intro">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#myModal">Feedback</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="booking">Services</a>
                     </li>

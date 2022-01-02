@@ -82,7 +82,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>
-                        <td> <a href="editP">click here</a></td>
+                        <td> <a href="{{ '/editP?id=' . $user->id }}">click here</a></td>
                     </tr>
                 @endforeach
 
@@ -125,23 +125,74 @@
 
                     @foreach ($bookings as $booking)
                         <?php
-                        $user = DB::select('select name from users where id=?', [$booking->user_id]);
-                        $name = $user[0];
-                        echo $name;
-                        
+                        // $user = DB::select('select name from users where id=?', [$booking->user_id]);
+                        // $name = $user[0];
+                        // echo $name;
                         ?>
-                        console.log($name);
                         <tr>
                             {{-- <td>{{ $name }}</td> --}}
                             <td>{{ $booking->services }}</td>
                             <td>{{ $booking->booking_time }}</td>
-                            <td> <a href={{ '/delete?booking_id=' . $booking->booking_id }}>click here</a></td>
+                            <td> <a href={{ '/deleteA?booking_id=' . $booking->booking_id }}>click here</a></td>
                         </tr>
                     @endforeach
                 @endif
             </tbody>
         </table>
 
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="info_div">
+        <h2 class="info"> Reviews...</h2>
+        <br>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+
+                    <th scope="col">Rating</th>
+                    <th scope="col">Feedback</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @csrf
+                <?php
+                $feedbacks = DB::select('select * from feedback');
+                // $name = DB::select('select name from users where id=?', [$bookings[0]->user_id]);
+                // foreach ($name as $n) {
+                //     echo $n;
+                // }
+                ?>
+                @if ($feedbacks)
+
+                    @foreach ($feedbacks as $feedback)
+                        <?php
+                        // $user = DB::select('select name from users where id=?', [$booking->user_id]);
+                        // $name = $user[0];
+                        // echo $name;
+                        ?>
+                        <tr>
+                            {{-- <td>{{ $name }}</td> --}}
+                            <td>{{ $feedback->rating }}</td>
+                            <td>{{ $feedback->message }}</td>
+                            <td> <a href={{ '/deleteReviewA?feedback_id=' . $feedback->feedback_id }}>click here</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
     </div>
 
 </body>

@@ -28,6 +28,10 @@ Route::get('/profile', [PageController::class, 'profile']);
 Route::get('/admin', [PageController::class, 'admin']);
 Route::get('/editP', [PageController::class, 'editP']);
 Route::get('/delete', [PageController::class, 'deleteBooking']);
+Route::get('/deleteA', [PageController::class, 'deleteBookingA']);
+
+Route::get('/deleteReview', [PageController::class, 'deleteReview']);
+Route::get('/deleteReviewA', [PageController::class, 'deleteReviewA']);
 
 
 
@@ -41,4 +45,6 @@ Route::post('/', 'App\Http\Controllers\customerController@login');
 
 Route::post('/booking', 'App\Http\Controllers\customerController@book');
 
-Route::post('/editp', 'App\Http\Controllers\customerController@edit');
+Route::post('/editP', 'App\Http\Controllers\customerController@update');
+
+Route::post('/home', 'App\Http\Controllers\customerController@feedback');

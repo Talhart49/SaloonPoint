@@ -128,9 +128,29 @@ class customerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, users $users)
+    public function update(Request $request)
     {
-        //
+        $name=Request::input('name');
+        $email=Request::input('email');
+        $phone=Request::input('phone');
+        $password=Request::input('password');
+        
+        $id=auth()->user()->id;
+        
+        DB::update('update users set name=?, email=?, password=?, phone=? where id= ?', [$name, $email,Hash::make($password), $phone ,$id]);
+
+    }
+
+    public function update_User(Request $request,$id)
+    {
+        $name=Request::input('name');
+        $email=Request::input('email');
+        $phone=Request::input('phone');
+        $password=Request::input('password');
+        
+        
+        DB::update('update users set name=?, email=?, password=?, phone=? where id= ?', [$name, $email,Hash::make($password), $phone ,$id]);
+
     }
 
     /**
@@ -142,5 +162,15 @@ class customerController extends Controller
     public function destroy(customer $customer)
     {
         //
+    }
+
+    public function feedback(){
+        $feedback=$_POST['feedback'];
+        
+        $message = Request::input('message');
+        $user_id= auth()->user()->id;
+
+        DB::insert('insert into feedback(user_id,rating,message) values (?,?,?)', [$user_id,$feedback,$message]);
+        return redirect('home');
     }
 }

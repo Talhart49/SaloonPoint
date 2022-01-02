@@ -31,7 +31,7 @@
     <div class="login-box">
 
         <h1>Edit</h1>
-        <form action="" method="">
+        <form action="editP" method="POST">
             @csrf
 
             <div class="textbox">

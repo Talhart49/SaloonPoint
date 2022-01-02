@@ -49,19 +49,53 @@
         text-align: center
     }
 
+    .modal-dialog {
+        height: 50%;
+        width: 50%;
+        margin: auto
+    }
+
+    .modal-header {
+        color: white;
+        background-color: #007bff;
+    }
+
+    textarea {
+        border: none;
+        box-shadow: none !important;
+        -webkit-appearance: none;
+        outline: 0px !important
+    }
+
+    .openmodal {
+        margin-left: 35%;
+        width: 25%;
+        margin-top: 25%
+    }
+
+    .icon1 {
+        color: #007bff
+    }
+
+    a {
+        margin: auto
+    }
+
+    input {
+        color: #007bff
+    }
+
 </style>
 @section('content')
 
 
     <div class="container start"
         style="margin-top:15%;
-                                                                                                                                                                                                                                                                                                height=100vh">
+                                                                                                                                                                                                                                                                                                                                                                                                                height=100vh">
         <div class="col-md-10 col-md-offset-1 ">
             <div class="banner-text text-center ">
                 <h1>Beauty Spa & Salon</h1>
-                <p>
-                    {{ auth()->user()->id }}
-                </p>
+
                 <p>A Beauty Spa & salon is your one stop shop for all things pampering, beautifying and grooming. You'll
                     find everything from facials to spray tans to lash extensions and even a spot of nail art. And it's not
                     just for the girls.<br /> </p>
@@ -198,6 +232,56 @@
         </div>
     </section>
     <!-- services section -->
+    <!--Modal Launch Button-->
+    <!--Division for Modal-->
+    <div id="myModal" class="modal fade" role="dialog">
+        <!--Modal-->
+        <div class="modal-dialog">
+            <!--Modal Content-->
+            <div class="modal-content">
+                <!-- Modal Header-->
+                <div class="modal-header" style="justify-content:center">
+                    <h3>Feedback</h3>
 
+                </div> <!-- Modal Body-->
+                <div class="modal-body text-center"> <i class="far fa-file-alt fa-4x mb-3 animated rotateIn icon1"></i>
+                    <h3>Your opinion matters</h3>
+                    <h5>Help us improve our services? <strong>Give us your feedback.</strong></h5>
+                    <hr>
+                    <h6>Your Rating</h6>
+                </div>
+                <form action="home" method="post">
+                    @csrf
+                    <!-- Radio Buttons for Rating-->
+                    <fieldset id="feedback">
+                        <div class="form-check mb-4"> <input value='Very good' name="feedback" type="radio" required> <label
+                                class="ml-3">Very
+                                good</label> </div>
+                        <div class="form-check mb-4"> <input value='Good' name="feedback" type="radio"> <label
+                                class="ml-3">Good</label> </div>
+                        <div class="form-check mb-4"> <input value='Mediocre' name="feedback" type="radio"> <label
+                                class="ml-3">Mediocre</label> </div>
+                        <div class="form-check mb-4"> <input value='Bad' name="feedback" type="radio"> <label
+                                class="ml-3">Bad</label>
+                        </div>
+                        <div class="form-check mb-4"> <input value='Very Bad' name="feedback" type="radio"> <label
+                                class="ml-3">Very
+                                Bad</label> </div>
+                    </fieldset>
+
+                    <!--Text Message-->
+                    <div class="text-center">
+                        <h4>What could we improve?</h4>
+                    </div> <textarea type="textarea" placeholder="Your Message" rows="3" name='message' style="width:100%"
+                        required></textarea>
+                    <!-- Modal Footer-->
+                    <div class="modal-footer"> <input type="submit" class="btn btn-primary" />
+
+                        <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 @endsection

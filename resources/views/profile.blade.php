@@ -29,7 +29,7 @@
 
     <div class="container start"
         style="margin-top:15%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                height=100vh">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                height=100vh">
         <div class="col-md-10 col-md-offset-1 ">
             <div class="banner-text text-center ">
                 <h1>Welcome to your page </h1>
@@ -109,6 +109,47 @@
         </table>
         <br><br>
         <a href="booking"> <i class=" mid fas fa-plus">ADD</i>
+        </a>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="info_div">
+        <h2 class="info"> My Reviews...</h2>
+        <br>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">FeedBack</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @if ($feedbacks)
+                    @foreach ($feedbacks as $feedback)
+                        <tr>
+                            <td>{{ $name }}</td>
+                            <td>{{ $feedback->rating }}</td>
+                            <td>{{ $feedback->message }}</td>
+                            <td> <a href={{ '/deleteReview?feedback_id=' . $feedback->feedback_id }}>click here</a></td>
+                        </tr>
+                    @endforeach
+                @endif
+
+
+            </tbody>
+        </table>
+        <br><br>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#myModal"> <i class=" mid fas fa-plus">ADD</i>
         </a>
     </div>
 
