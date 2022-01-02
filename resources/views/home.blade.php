@@ -85,13 +85,18 @@
         color: #007bff
     }
 
+    #btn2:hover {
+        background-color: #F05DA3;
+
+    }
+
 </style>
 @section('content')
 
 
     <div class="container start"
         style="margin-top:15%;
-                                                                                                                                                                                                                                                                                                                                                                                                                height=100vh">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        height=100vh">
         <div class="col-md-10 col-md-offset-1 ">
             <div class="banner-text text-center ">
                 <h1>Beauty Spa & Salon</h1>
@@ -121,6 +126,12 @@
             </div>
         </div>
     </section>
+
+@endsection
+
+@section('slider')
+
+
 
 @endsection
 
@@ -240,11 +251,13 @@
             <!--Modal Content-->
             <div class="modal-content">
                 <!-- Modal Header-->
-                <div class="modal-header" style="justify-content:center">
+                <div class="modal-header" style="justify-content:center;
+                                                                background-color:#f05da3;">
                     <h3>Feedback</h3>
 
                 </div> <!-- Modal Body-->
-                <div class="modal-body text-center"> <i class="far fa-file-alt fa-4x mb-3 animated rotateIn icon1"></i>
+                <div class="modal-body text-center"> <i class="far fa-file-alt fa-4x mb-3 animated rotateIn icon1"
+                        style="color:#f05da3"></i>
                     <h3>Your opinion matters</h3>
                     <h5>Help us improve our services? <strong>Give us your feedback.</strong></h5>
                     <hr>
@@ -275,9 +288,10 @@
                     </div> <textarea type="textarea" placeholder="Your Message" rows="3" name='message' style="width:100%"
                         required></textarea>
                     <!-- Modal Footer-->
-                    <div class="modal-footer"> <input type="submit" class="btn btn-primary" />
+                    <div class="modal-footer"> <input onMouseOver="this.style.background-color='#fff'" type="submit"
+                            id="btn1" class="btn" style="background-color:#F05DA3" />
 
-                        <a href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a>
+                        <a href="" id="btn2" class="btn btn-outline" data-dismiss="modal">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -285,3 +299,40 @@
     </div>
 
 @endsection
+
+<script>
+    $('.responsive').slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+</script>
