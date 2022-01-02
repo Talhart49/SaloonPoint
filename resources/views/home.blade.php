@@ -1,4 +1,18 @@
 @extends('layouts.app')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
     .start {
         display: flex;
@@ -13,6 +27,7 @@
         justify-content: center;
         align-items: center;
         padding-left: 23%;
+        margin-bottom: 7rem;
     }
 
     .icon {
@@ -90,13 +105,82 @@
 
     }
 
+    img {
+        height: 90vh;
+        background-size: cover;
+        width: 90%;
+        margin: auto;
+
+    }
+
+    /* 
+    .slideshow {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        max-width: 700px;
+        margin: 50px auto;
+    }
+
+    .slideshow * {
+        outline: none;
+    }
+
+    .slideshow .slider {
+        box-shadow: 0 20px 50px -25px black;
+    }
+
+    .slideshow .slider-track {
+        -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .slideshow .item {
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .slideshow .item img {
+        width: 100%;
+        -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+
+    .slideshow .item.slick-active img {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-animation: cssAnimation 8s 1 ease-in-out forwards;
+        animation: cssAnimation 8s 1 ease-in-out forwards;
+    }
+
+    @keyframes cssAnimation {
+        from {
+            -webkit-transform: scale(1) translate(0px);
+        }
+
+        to {
+            -webkit-transform: scale(1.3) translate(0px);
+        }
+    }
+
+    @-webkit-keyframes cssAnimation {
+        from {
+            -webkit-transform: scale(1) translate(0px);
+        }
+
+        to {
+            -webkit-transform: scale(1.3) translate(0px);
+        }
+    } */
+
 </style>
 @section('content')
 
 
-    <div class="container start"
-        style="margin-top:15%;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        height=100vh">
+    <div class="container start" style="margin-top:15%; height=100vh">
         <div class="col-md-10 col-md-offset-1 ">
             <div class="banner-text text-center ">
                 <h1>Beauty Spa & Salon</h1>
@@ -130,9 +214,20 @@
 @endsection
 
 @section('slider')
-
-
-
+    <div class="slide">
+        <div class="item"><img src="/images/img1.jpg" alt=""></div>
+        <div class="item"><img src="/images/img2.jpg" alt=""></div>
+        <div class="item"><img src="/images/img3.jpg" alt=""></div>
+        <div class="item"><img src="/images/img4.jpg" alt=""></div>
+        <div class="item"><img src="/images/img5.jpg" alt=""></div>
+        <div class="item"><img src="/images/img6.jpg" alt=""></div>
+        <div class="item"><img src="/images/img7.jpg" alt=""></div>
+        <div class="item"><img src="/images/img8.jpg" alt=""></div>
+        <div class="item"><img src="/images/img9.jpg" alt=""></div>
+        <div class="item"><img src="/images/img10.jpg" alt=""></div>
+        <div class="item"><img src="/images/img11.jpg" alt=""></div>
+        <div class="item"><img src="/images/img12.jpg" alt=""></div>
+    </div>
 @endsection
 
 @section('services')
@@ -251,8 +346,9 @@
             <!--Modal Content-->
             <div class="modal-content">
                 <!-- Modal Header-->
-                <div class="modal-header" style="justify-content:center;
-                                                                background-color:#f05da3;">
+                <div class="modal-header"
+                    style="justify-content:center;
+                                                                                                                                                                                                                                                                                                                                                                                background-color:#f05da3;">
                     <h3>Feedback</h3>
 
                 </div> <!-- Modal Body-->
@@ -301,38 +397,47 @@
 @endsection
 
 <script>
-    $('.responsive').slick({
-        dots: true,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
+    $(document).ready(function() {
+        $('.slide').slick({
+            draggable: true,
+            autoplay: true,
+            autoplaySpeed: 1500,
+            arrows: false,
+            dots: true,
+            fade: true,
+            speed: 500,
+            infinite: true,
+            cssEase: 'ease-in-out',
+            touchThreshold: 100,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
                 }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
     });
 </script>
