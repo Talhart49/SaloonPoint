@@ -348,7 +348,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <!-- Modal Header-->
                 <div class="modal-header"
                     style="justify-content:center;
-                                                                                                                                                                                                                                                                                                                                                                                background-color:#f05da3;">
+                                                                                                                                                                                                                                                                                                                                                                                        background-color:#f05da3;">
                     <h3>Feedback</h3>
 
                 </div> <!-- Modal Body-->
@@ -401,11 +401,11 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         $('.slide').slick({
             draggable: true,
             autoplay: true,
-            autoplaySpeed: 1500,
+            autoplaySpeed: 1100,
             arrows: false,
             dots: true,
             fade: true,
-            speed: 500,
+            speed: 300,
             infinite: true,
             cssEase: 'ease-in-out',
             touchThreshold: 100,

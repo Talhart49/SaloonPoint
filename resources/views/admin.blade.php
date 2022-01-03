@@ -177,13 +177,12 @@
                 @if ($feedbacks)
 
                     @foreach ($feedbacks as $feedback)
-                        <?php
-                        // $user = DB::select('select name from users where id=?', [$booking->user_id]);
-                        // $name = $user[0];
-                        // echo $name;
-                        ?>
+                        @php
+                            $username = DB::select('select name from users where id = ?', [$feedback->user_id])[0]->name;
+                            
+                        @endphp
                         <tr>
-                            {{-- <td>{{ $name }}</td> --}}
+                            <td>{{ $username }}</td>
                             <td>{{ $feedback->rating }}</td>
                             <td>{{ $feedback->message }}</td>
                             <td> <a href={{ '/deleteReviewA?feedback_id=' . $feedback->feedback_id }}>click here</a>
