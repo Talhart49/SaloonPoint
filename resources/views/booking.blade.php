@@ -81,7 +81,7 @@
             <div class="row section-data">
                 <div class=" col-md-offset-2 conForm">
                     <div id="message"></div>
-                    <form method="post" action="booking" name="cform" id="cform">
+                    <form method="post" action="profile" name="cform" id="cform">
                         @csrf
                         <h3><strong>Choose Service</strong></h3>
                         <select name="services" id="services_here">

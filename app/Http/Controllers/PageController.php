@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 
 class PageController extends Controller
@@ -31,7 +32,20 @@ class PageController extends Controller
         return view('booking');
         }
     }
+    
     public function profile(){
+        
+        if(auth()->user()==null){
+            return view('login');
+        }
+        else{
+            $id = auth()->user()->id;
+        $bookings = DB::select("select * from bookings where user_id = ?", [$id]);
+        $feedbacks = DB::select("select * from feedback where user_id = ?", [$id]);
+        $name = auth()->user()->name;
+        return view('profile', ['bookings' => $bookings,'feedbacks'=>$feedbacks,'name' => $name]);}
+    }
+    public function profileAfterBooking(){
         
         if(auth()->user()==null){
             return view('login');
@@ -85,10 +99,11 @@ class PageController extends Controller
         $id = request('feedback_id');
         DB::delete('delete from feedback where feedback_id = ?', [$id]);
 
-        if(auth()->user()==null){
-            return view('login');
-        }
-        else{
-        return redirect('admin');}
+        
+        return redirect('admin');
     }
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/');
+      }
 }

@@ -58,7 +58,7 @@ top: 0;
                     <a class="nav-link" href="#">Contact</a>
                 </li>
                 <div style='margin-left:7%'>
-                    <a class="nav-link " href="/">Logout</a>
+                    <a class="nav-link " href="/logout">Logout</a>
                 </div>
             </ul>
         </div>
@@ -66,10 +66,3 @@ top: 0;
 </nav>
 
 
-<script>
-    // window.addEventListner('scroll', function() {
-    //     let header = document.querySelector('nav');
-    //     let windowPosition = window.scrollY > 0;
-    //     header.classList.toggle('scrolling-active', windowPosition);
-    // })
-</script>

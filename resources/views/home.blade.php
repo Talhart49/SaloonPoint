@@ -348,7 +348,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <!-- Modal Header-->
                 <div class="modal-header"
                     style="justify-content:center;
-                                                                                                                                                                                                                                                                                                                                                                                        background-color:#f05da3;">
+                                                                                                                                                                                                                                                                                                                                                                                            background-color:#f05da3;">
                     <h3>Feedback</h3>
 
                 </div> <!-- Modal Body-->
@@ -359,7 +359,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                     <hr>
                     <h6>Your Rating</h6>
                 </div>
-                <form action="home" method="post">
+                <form action="profile" method="post">
                     @csrf
                     <!-- Radio Buttons for Rating-->
                     <fieldset id="feedback">

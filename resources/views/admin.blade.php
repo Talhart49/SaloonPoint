@@ -17,21 +17,28 @@
 
     <style>
         body {
-            background-image: url('https://i.pinimg.com/originals/55/3e/68/553e68f7626aa851709f3e366665e1b2.jpg');
+            background-image: url('https://cdn.wallpapersafari.com/49/59/RHX7Wt.jpg');
             background-repeat: no-repeat;
             background-size: cover;
-            color: brown;
+            color: whitesmoke;
         }
 
         td {
-            color: brown;
+            color: whitesmoke;
+        }
 
+        th {
+            color: aliceblue
         }
 
         a {
             color: brown;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        li {
+            color: aliceblue;
         }
 
         .info {
@@ -50,10 +57,48 @@
             cursor: pointer;
         }
 
+        .navigation {
+            style="position: fixed;
+top: 0;
+            z-index: 100;
+            ">
+
+        }
+
+        .scrolling-active {
+            background-color: #fff;
+            color: palevioletred;
+            box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+
+        }
+
     </style>
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light justify-content-around" style="
+    padding: 25px;">
+
+        <div style='
+    margin-right: 25%;
+    width: 55%;
+    margin-left: 1.5%;'>
+            <h2> Saloon Point</h2>
+
+        </div>
+
+        <div class="container-fluid " style="width:15%;float: right;">
+
+
+            <div style='margin-left:7%'>
+                <a class="nav-link " href="/logout" style="color:aliceblue">Logout</a>
+            </div>
+
+        </div>
+    </nav>
+
+
 
 
 
@@ -116,21 +161,17 @@
                 @csrf
                 <?php
                 $bookings = DB::select('select * from bookings');
-                // $name = DB::select('select name from users where id=?', [$bookings[0]->user_id]);
-                // foreach ($name as $n) {
-                //     echo $n;
-                // }
+                
                 ?>
                 @if ($bookings)
 
                     @foreach ($bookings as $booking)
-                        <?php
-                        // $user = DB::select('select name from users where id=?', [$booking->user_id]);
-                        // $name = $user[0];
-                        // echo $name;
-                        ?>
+                        @php
+                            $username = DB::select('select name from users where id = ?', [$booking->user_id])[0]->name;
+                            
+                        @endphp
                         <tr>
-                            {{-- <td>{{ $name }}</td> --}}
+                            <td>{{ $username }}</td>
                             <td>{{ $booking->services }}</td>
                             <td>{{ $booking->booking_time }}</td>
                             <td> <a href={{ '/deleteA?booking_id=' . $booking->booking_id }}>click here</a></td>
@@ -169,10 +210,7 @@
                 @csrf
                 <?php
                 $feedbacks = DB::select('select * from feedback');
-                // $name = DB::select('select name from users where id=?', [$bookings[0]->user_id]);
-                // foreach ($name as $n) {
-                //     echo $n;
-                // }
+                
                 ?>
                 @if ($feedbacks)
 

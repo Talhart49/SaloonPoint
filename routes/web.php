@@ -22,9 +22,13 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'login'] );
 Route::get('/signup', [PageController::class, 'signup']);
+Route::get('/logout', [PageController::class, 'logout']);
+
 Route::get('/home', [PageController::class, 'home']);
 Route::get('/booking', [PageController::class, 'booking']);
 Route::get('/profile', [PageController::class, 'profile']);
+Route::post('/profile', [PageController::class, 'profileAfterBooking']);
+
 Route::get('/admin', [PageController::class, 'admin']);
 Route::get('/editP', [PageController::class, 'editP']);
 Route::get('/delete', [PageController::class, 'deleteBooking']);
