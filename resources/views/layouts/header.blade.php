@@ -55,7 +55,7 @@ top: 0;
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="home#contact">Contact</a>
                 </li>
                 <div style='margin-left:7%'>
                     <a class="nav-link " href="/logout">Logout</a>
@@ -64,5 +64,3 @@ top: 0;
         </div>
     </div>
 </nav>
-
-
